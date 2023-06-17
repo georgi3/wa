@@ -1,19 +1,18 @@
 # Django #
 *.log
 *.pot
-*.pyc
 pycache
 db.sqlite3
 media
 backend/venv/
 
 # PyCharm
-.idea//workspace.xml
-.idea//tasks.xml
-.idea//usage.statistics.xml
-.idea//dictionaries
-.idea/**/shelf
 .idea/
+#.idea//workspace.xml
+#.idea//tasks.xml
+#.idea//usage.statistics.xml
+#.idea//dictionaries
+#.idea/**/shelf
 
 # React #
 node_modules
@@ -31,7 +30,6 @@ fixtures/dom/public/react.js
 test/the-files-to-test.generated.js
 *.log*
 chrome-user-data
-.idea
 *.iml
 *.swp
 *.swo
