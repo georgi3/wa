@@ -1,16 +1,35 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {Container, Col, Form, Row, Button} from "react-bootstrap";
-import {faGoogle, faFacebook, faLinkedin} from "@fortawesome/free-brands-svg-icons";
+import {faGoogle, faFacebook, faLinkedin, faInstagram, faTiktok, faTwitter} from "@fortawesome/free-brands-svg-icons";
 import {faUser, faEnvelope, faKey} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import signupImg from "../assets/images/signup1.webp"
+import SocialMediaLinks from "../components/SocialMediaLinks";
+
+const socialMedias = [
+    {
+        icon: faGoogle,
+        href: "",
+        color: "text-light"
+    },
+    {
+        icon: faFacebook,
+        href: "",
+        color: "text-light"
+    },
+    {
+        icon: faLinkedin,
+        href: "",
+        color: "text-light"
+    },
+];
 
 export default function SignUpScreen(){
     return (
-        <Container className={"d-flex flex-row flex-wrap bg-danger p-0"} fluid>
-            <Col  className={"bg-primary container-fluid p-0"} fluid>
-                <img className={"img-fluid"}
+        <Container className={"waves-bg-secondary d-flex flex-row flex-wrap p-0 align-items-center"} fluid>
+            <Col  className={"p-0"} fluid>
+                <img className={"img-fluid vh-100"}
                      style={{
                          "-webkit-filter": "grayscale(100%)",
                          "filter": "grayscale(100%)"
@@ -18,7 +37,7 @@ export default function SignUpScreen(){
                      src={signupImg}
                      alt="WelfareAvenue Image"/>
             </Col>
-            <Col  className={"bg-secondary container-fluid px-0 py-5"} fluid>
+            <Col  className={""} fluid>
                 <SignUpForm/>
             </Col>
         </Container>
@@ -62,9 +81,9 @@ function SignUpForm(){
                     FontAwesomeIcon className={"text-light mt-2"} size={"lg"}  icon={faKey} /></Form.Label>
                 <Form.Control className={"py-2 w-75"} type={"password"} placeholder={"Repeat your password"}/>
             </Form.Group>
-            <SocialMediaLinks/>
+            <SocialMediaLinks socials={socialMedias}/>
             <Container className={"d-flex justify-content-center align-content-center"}>
-                <Button className={"w-75 btn btn-primary"} type={"submit"}>
+                <Button className={"w-100 btn btn-light"} type={"submit"}>
                     Sign Up
                 </Button>
             </Container>
@@ -76,69 +95,13 @@ function SignUpForm(){
 }
 
 
-function SocialMediaLinks(){
-    return (
-        <Container className='text-center pt-3 mb-3 text-light' fluid>
-            <span className={"text-light"}>Sign in with </span>
-            <a className="pt-3 mx-2 text-light card-link" target="_blank" href=""><FontAwesomeIcon size="xl" icon={faGoogle}/></a>
-            <a className="pt-3 mx-2 text-light card-link" target="_blank" href=""><FontAwesomeIcon size="xl" icon={faFacebook}/></a>
-            <a className="pt-3 mx-2 text-light card-link" target="_blank" href=""><FontAwesomeIcon size="xl" icon={faLinkedin}/></a>
-        </Container>
-    )
-}
-
-// <>
-//             <Container style={{
-//             "backgroundImage": `url(${signupImg})`,
-//             "backgroundPosition": "center",
-//             // "backgroundRepeat": "no-repeat",
-//             "backgroundSize": "cover",
-//             "width": "100%",
-//             "height": "90vh",
-//             "-webkit-filter": "grayscale(100%)",
-//             "filter": "grayscale(100%)"
-//         }} fluid> </Container>
-//             <Container className={"h-100 d-flex flex-column justify-content-end align-content-end"}>
-//                 <Form>
-//                     <Container className={"text-center"}>
-//                         <h1 className={"text-primary"}>Join our Community!</h1>
-//                     </Container>
-//                     <Form.Group className={"d-flex flex-row my-2 py-2"}
-//                                 controlId={"formRegistrationFName"}>
-//                         <Form.Label className={"px-3"}>
-//                             <FontAwesomeIcon className={"mt-2"} size={"lg"}  icon={faUser}/></Form.Label>
-//                         <Form.Control type={"text"} placeholder={"Enter your first name"}/>
-//                     </Form.Group>
-//                     <Form.Group className={"d-flex flex-row my-2 py-2"}
-//                                 controlId={"formRegistrationLName"}>
-//                         <Form.Label className={"px-3"}>
-//                             <FontAwesomeIcon className={"mt-2"} size={"lg"}  icon={faUser}/></Form.Label>
-//                         <Form.Control type={"text"} placeholder={"Enter your last name"}/>
-//                     </Form.Group>
-//                     <Form.Group className={"d-flex flex-row my-2 py-2"}
-//                                 controlId={"formRegistrationEmail"}>
-//                         <Form.Label className={"px-3"}>
-//                             <FontAwesomeIcon className={"mt-2"} size={"lg"}  icon={faEnvelope} /></Form.Label>
-//                         <Form.Control type={"email"} placeholder={"Enter email"}/>
-//                     </Form.Group>
-//                     <Form.Group className={"d-flex flex-row my-2 py-2"}
-//                                 controlId={"formRegistrationPassword"}>
-//                         <Form.Label className={"px-3"}>
-//                             <FontAwesomeIcon className={"mt-2"} size={"lg"}  icon={faKey}/></Form.Label>
-//                         <Form.Control type={"password"} placeholder={"Enter password"}/>
-//                     </Form.Group>
-//                     <Form.Group className={"d-flex flex-row my-2 py-2"}
-//                                 controlId={"formRegistrationPassword2"}>
-//                         <Form.Label className={"px-3"}><
-//                             FontAwesomeIcon className={"mt-2"} size={"lg"}  icon={faKey} /></Form.Label>
-//                         <Form.Control type={"password"} placeholder={"Repeat your password"}/>
-//                     </Form.Group>
-//                     <Container className={"d-flex justify-content-center align-content-center"}>
-//                         <Button className={"w-75"} type={"submit"}>
-//                             Sign Up
-//                         </Button>
-//                     </Container>
-//                 </Form>
-//             </Container>
-//         {/*// </Container>*/}
-// </>
+// function SocialMediaLinks(){
+//     return (
+//         <Container className='text-center pt-3 mb-3 text-light' fluid>
+//             <span className={"text-light"}>Sign in with </span>
+//             <a className="pt-3 mx-2 text-light card-link" target="_blank" href=""><FontAwesomeIcon size="xl" icon={faGoogle}/></a>
+//             <a className="pt-3 mx-2 text-light card-link" target="_blank" href=""><FontAwesomeIcon size="xl" icon={faFacebook}/></a>
+//             <a className="pt-3 mx-2 text-light card-link" target="_blank" href=""><FontAwesomeIcon size="xl" icon={faLinkedin}/></a>
+//         </Container>
+//     )
+// }

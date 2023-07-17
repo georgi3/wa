@@ -11,12 +11,13 @@ export function EventTabs({events}) {
         <Tabs
             defaultActiveKey="upcomingEvents"
             id="eventTabs"
-            className="mb-3"
+            className="mb-3 d-flex justify-content-between"
+            style={{backgroundColor: 'none'}}
             justify>
-            <Tab eventKey="upcomingEvents" title="Upcoming Events">
+            <Tab eventKey="upcomingEvents" title="Upcoming Events" className={""} style={{"--bs-nav-tabs-link-active-bg": 'none'}}>
                 <EventsCarousel events={upcomingEvents}/>
             </Tab>
-            <Tab eventKey="pastEvents" title="Past Events">
+            <Tab eventKey="pastEvents" title="Past Events" className={""}>
                 <EventsCarousel events={pastEvents} onClick={() => events.filter(event => event.past === true)}/>
             </Tab>
         </Tabs>

@@ -3,6 +3,8 @@ import {Container, Accordion, Carousel} from "react-bootstrap";
 import {Link} from "react-router-dom"
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import {Gallery} from "../components/gallery/Gallery";
+import MyNavbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import vol1 from "../assets/images/about/gallery/volunteers/1.webp";
 import vol2 from "../assets/images/about/gallery/volunteers/2.webp";
 import vol3 from "../assets/images/about/gallery/volunteers/3.webp";
@@ -56,6 +58,7 @@ import vid1 from "../assets/images/about/gallery/videos/1.mp4";
 import vid2 from "../assets/images/about/gallery/videos/2.MOV";
 import vid3 from "../assets/images/about/gallery/videos/3.mp4";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import ImageListGallery from "../components/gallery/ImageListGallery";
 const volunteers = [
     {
         "img": vol1,
@@ -267,76 +270,80 @@ export function GalleryScreen(){
     // 2. only first video should have autoPlay
     // 3. add text?
     return (
-        <Container className={"my-3"} fluid>
-            <Link to={"/about"} className={"btn btn-lg btn-light rounded m-3 p-1 position-fixed"}
-                  style={{"z-index": "9"}}>
-                <FontAwesomeIcon icon={faArrowLeft} /> Go Back
-            </Link>
-            <h1 className={"text-center text-primary mb-5"}>WelfareAvenue Videos</h1>
+        <>
+            <MyNavbar />
+            <Container className={"my-3"} fluid>
+                <Link to={"/about"} className={"btn btn-lg btn-outline-primary rounded m-3 p-1 position-fixed"}
+                      style={{"z-index": "9"}}>
+                    <FontAwesomeIcon icon={faArrowLeft} /> Go Back
+                </Link>
+                <h1 className={"text-center text-info fw-light mb-5"}>WelfareAvenue Videos</h1>
 
-            <Carousel data-interval="false"
-                      className={"m-5 p-5 mt-1 pt-0 d-flex justify-content-center align-content-center"}
-                      style={{"height": "80vh"}}>
-                <Carousel.Item>
-                    <video controls autoPlay preload loop className={"img-fluid"}>
-                        <source src={vid1} type="video/mp4"/>
-                            Your browser does not support the video tag.
-                    </video>
-                    <Carousel.Caption>
-                        <h3></h3>
-                        <p></p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <video controls preload loop className={"img-fluid"}>
-                        <source src={vid2} type="video/mp4"/>
+                <Carousel data-interval="false"
+                          className={"m-5 p-5 mt-1 pt-0 d-flex justify-content-center align-content-center"}
+                          style={{"height": "80vh"}}>
+                    <Carousel.Item>
+                        <video controls autoPlay preload loop className={"img-fluid"}>
+                            <source src={vid1} type="video/mp4"/>
                                 Your browser does not support the video tag.
-                    </video>
-                    <Carousel.Caption>
-                        <h3></h3>
-                        <p></p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <video controls preload loop className={"img-fluid"}>
-                        <source src={vid3} type="video/mp4"/>
-                                Your browser does not support the video tag.
-                    </video>
-                    <Carousel.Caption>
-                        <h3></h3>
-                        <p>
-                        </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
-            <h1 className={"text-center text-primary mb-5"}>WelfareAvenue Photos</h1>
-            <Accordion className={"mx-5 px-5 d-flex flex-row justify-content-center align-content-center"}
-                defaultActiveKey="0" flush>
-                <Accordion.Item  eventKey="0">
-                    <Accordion.Header>Our Team</Accordion.Header>
-                    <Accordion.Body>
-                        <Gallery galleryImages={team} />
-                    </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="1">
-                    <Accordion.Header>Our Volunteers</Accordion.Header>
-                    <Accordion.Body>
-                        <Gallery galleryImages={volunteers} />
-                    </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="2">
-                    <Accordion.Header>Meals We Provide</Accordion.Header>
-                    <Accordion.Body>
-                        <Gallery galleryImages={meals} />
-                    </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="3">
-                    <Accordion.Header>Our Help</Accordion.Header>
-                    <Accordion.Body>
-                        <Gallery galleryImages={help} />
-                    </Accordion.Body>
-                </Accordion.Item>
-            </Accordion>
-        </Container>
+                        </video>
+                        <Carousel.Caption>
+                            <h3></h3>
+                            <p></p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <video controls preload loop className={"img-fluid"}>
+                            <source src={vid2} type="video/mp4"/>
+                                    Your browser does not support the video tag.
+                        </video>
+                        <Carousel.Caption>
+                            <h3></h3>
+                            <p></p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <video controls preload loop className={"img-fluid"}>
+                            <source src={vid3} type="video/mp4"/>
+                                    Your browser does not support the video tag.
+                        </video>
+                        <Carousel.Caption>
+                            <h3></h3>
+                            <p>
+                            </p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+                <h1 className={"text-center text-info fw-light mb-5"}>WelfareAvenue Photos</h1>
+                <Accordion className={"mx-5 px-5 d-flex flex-row justify-content-center align-content-center"}
+                    defaultActiveKey="0" style={{backgroundColor: "none"}} flush>
+                    <Accordion.Item  eventKey="0" style={{backgroundColor: "none"}}>
+                        <Accordion.Header>Our Team</Accordion.Header>
+                        <Accordion.Body style={{backgroundColor: "none"}}>
+                            <ImageListGallery galleryImages={team} />
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1">
+                        <Accordion.Header>Our Volunteers</Accordion.Header>
+                        <Accordion.Body>
+                            <ImageListGallery galleryImages={volunteers} />
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="2">
+                        <Accordion.Header>Meals We Provide</Accordion.Header>
+                        <Accordion.Body>
+                            <ImageListGallery galleryImages={meals} />
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="3">
+                        <Accordion.Header>Our Help</Accordion.Header>
+                        <Accordion.Body>
+                            <ImageListGallery galleryImages={help} />
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+            </Container>
+            <Footer />
+        </>
     )
 }

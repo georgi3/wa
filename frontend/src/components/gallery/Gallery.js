@@ -1,13 +1,13 @@
+// NOT USED
 import { useState } from 'react'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faCircleChevronLeft,
     faCircleChevronRight,
     faCircleXmark,
-} from '@fortawesome/free-solid-svg-icons'
+} from '@fortawesome/free-solid-svg-icons';
 
-import './gallery.css'
+import './gallery.css';
 
 export function Gallery({galleryImages}){
     const [slideNumber, setSlideNumber] = useState(0)

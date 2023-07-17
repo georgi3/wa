@@ -30,7 +30,7 @@ export function EventsCarousel({events}) {
             {
                 events.map(event => {
                     return (
-                        <EventCard className='item p-3 mx-3 d-flex' key={event.id} event={event} />
+                        <EventCard className='p-3 mx-3 d-flex' key={event.id} event={event} />
                     )
                 })
             }
