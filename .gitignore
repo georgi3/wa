@@ -5,7 +5,6 @@ notes.md
 *.pot
 pycache
 db.sqlite3
-media
 backend/venv/
 
 # PyCharm
